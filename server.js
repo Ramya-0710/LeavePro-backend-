@@ -34,11 +34,11 @@ app.use((err, req, res, next) => res.status(err.statusCode||500).json({ success:
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('✅ MongoDB connected');
+    console.log('✅ MongoDB connected Successfully');
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`🚀 LeaveFlow Pro → http://localhost:${PORT}`));
 
-    // Year-end carry forward cron — Jan 1 midnight
+   
     cron.schedule('0 0 1 1 *', async () => {
       console.log('🔄 Running year-end carry forward cron...');
       try {
